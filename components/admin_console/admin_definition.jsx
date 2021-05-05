@@ -21,8 +21,6 @@ import {
 } from 'actions/admin_actions';
 import SystemAnalytics from 'components/analytics/system_analytics';
 import TeamAnalytics from 'components/analytics/team_analytics';
-import PluginManagement from 'components/admin_console/plugin_management';
-import CustomPluginSettings from 'components/admin_console/custom_plugin_settings';
 
 import {trackEvent} from 'actions/telemetry_actions.jsx';
 
@@ -30,7 +28,6 @@ import OpenIdConvert from './openid_convert';
 import Audits from './audits';
 import CustomURLSchemesSetting from './custom_url_schemes_setting.jsx';
 import CustomEnableDisableGuestAccountsSetting from './custom_enable_disable_guest_accounts_setting';
-import LicenseSettings from './license_settings';
 import PermissionSchemesSettings from './permission_schemes_settings';
 import PermissionSystemSchemeSettings from './permission_schemes_settings/permission_system_scheme_settings';
 import PermissionTeamSchemeSettings from './permission_schemes_settings/permission_team_scheme_settings';
@@ -237,36 +234,6 @@ const usesLegacyOauth = (config, state, license, enterpriseReady, consoleAccess,
 };
 
 const AdminDefinition = {
-    about: {
-        icon: 'fa-info-circle',
-        sectionTitle: t('admin.sidebar.about'),
-        sectionTitleDefault: 'About',
-        isHidden: it.any(
-            it.configIsTrue('ExperimentalSettings', 'RestrictSystemAdmin'),
-            it.not(it.userHasReadPermissionOnSomeResources(RESOURCE_KEYS.ABOUT)),
-        ),
-        license: {
-            url: 'about/license',
-            title: t('admin.sidebar.license'),
-            title_default: 'Edition and License',
-            searchableStrings: [
-                'admin.license.title',
-                'admin.license.uploadDesc',
-                'admin.license.keyRemove',
-                'admin.license.edition',
-                'admin.license.type',
-                'admin.license.key',
-                'Mattermost Enterprise Edition. Unlock enterprise features in this software through the purchase of a subscription from ',
-                'This software is offered under a commercial license.\n\nSee ENTERPRISE-EDITION-LICENSE.txt in your root install directory for details. See NOTICE.txt for information about open source software used in this system.',
-            ],
-            isHidden: it.not(it.userHasReadPermissionOnResource(RESOURCE_KEYS.ABOUT.EDITION_AND_LICENSE)),
-            isDisabled: it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.ABOUT.EDITION_AND_LICENSE)),
-            schema: {
-                id: 'LicenseSettings',
-                component: LicenseSettings,
-            },
-        },
-    },
     billing: {
         icon: 'fa-credit-card', // TODO: Need compass icon
         sectionTitle: t('admin.sidebar.billing'),
@@ -674,7 +641,7 @@ const AdminDefinition = {
                         label: t('admin.service.siteURL'),
                         label_default: 'Site URL:',
                         help_text: t('admin.service.siteURLDescription'),
-                        help_text_default: 'The URL that users will use to access Mattermost. Standard ports, such as 80 and 443, can be omitted, but non-standard ports are required. For example: http://example.com:8065. This setting is required.\n \nMattermost may be hosted at a subpath. For example: http://example.com:8065/company/mattermost. A restart is required before the server will work correctly.',
+                        help_text_default: 'The URL that users will use to access Mattermost. Standard ports, such as 80 and 443, can be omitted, but non-standard ports are required. For example: http://example.com:8065. This setting is required.\n \nMattermost may be hosted at a subpath. For example: http://example.com:8065/company/grommunio. A restart is required before the server will work correctly.',
                         help_text_markdown: true,
                         placeholder: t('admin.service.siteURLExample'),
                         placeholder_default: 'E.g.: "http://example.com:8065"',
@@ -1075,7 +1042,7 @@ const AdminDefinition = {
                         help_text: t('admin.image.amazonS3BucketDescription'),
                         help_text_default: 'Name you selected for your S3 bucket in AWS.',
                         placeholder: t('admin.image.amazonS3BucketExample'),
-                        placeholder_default: 'E.g.: "mattermost-media"',
+                        placeholder_default: 'E.g.: "grommunio-media"',
                         isDisabled: it.any(
                             it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.ENVIRONMENT.FILE_STORAGE)),
                             it.not(it.stateEquals('FileSettings.DriverName', FILE_STORAGE_DRIVER_S3)),
@@ -2747,9 +2714,9 @@ const AdminDefinition = {
                         label: t('admin.team.restrictTitle'),
                         label_default: 'Restrict new system and team members to specified email domains:',
                         help_text: t('admin.team.restrictDescription'),
-                        help_text_default: 'New user accounts are restricted to the above specified email domain (e.g. "mattermost.org") or list of comma-separated domains (e.g. "corp.mattermost.com, mattermost.org"). New teams can only be created by users from the above domain(s). This setting only affects email login for users.',
+                        help_text_default: 'New user accounts are restricted to the above specified email domain (e.g. "grommunio.org") or list of comma-separated domains (e.g. "corp.grommunio.com, grommunio.org"). New teams can only be created by users from the above domain(s). This setting only affects email login for users.',
                         placeholder: t('admin.team.restrictExample'),
-                        placeholder_default: 'E.g.: "corp.mattermost.com, mattermost.org"',
+                        placeholder_default: 'E.g.: "corp.grommunio.com, grommunio.org"',
                         isHidden: it.licensed,
                         isDisabled: it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.AUTHENTICATION.SIGNUP)),
                     },
@@ -2759,9 +2726,9 @@ const AdminDefinition = {
                         label: t('admin.team.restrictTitle'),
                         label_default: 'Restrict new system and team members to specified email domains:',
                         help_text: t('admin.team.restrictGuestDescription'),
-                        help_text_default: 'New user accounts are restricted to the above specified email domain (e.g. "mattermost.org") or list of comma-separated domains (e.g. "corp.mattermost.com, mattermost.org"). New teams can only be created by users from the above domain(s). This setting affects email login for users. For Guest users, please add domains under Signup > Guest Access.',
+                        help_text_default: 'New user accounts are restricted to the above specified email domain (e.g. "grommunio.org") or list of comma-separated domains (e.g. "corp.grommunio.com, grommunio.org"). New teams can only be created by users from the above domain(s). This setting affects email login for users. For Guest users, please add domains under Signup > Guest Access.',
                         placeholder: t('admin.team.restrictExample'),
-                        placeholder_default: 'E.g.: "corp.mattermost.com, mattermost.org"',
+                        placeholder_default: 'E.g.: "corp.grommunio.com, grommunio.org"',
                         isHidden: it.any(
                             it.not(it.licensed),
                             it.licensedForSku('starter'),
@@ -4202,123 +4169,6 @@ const AdminDefinition = {
                 ],
             },
         },
-        gitlab: {
-            url: 'authentication/gitlab',
-            title: t('admin.sidebar.gitlab'),
-            title_default: 'GitLab',
-            isHidden: it.any(
-                it.licensed,
-                it.not(it.userHasReadPermissionOnResource(RESOURCE_KEYS.AUTHENTICATION.OPENID)),
-            ),
-            schema: {
-                id: 'GitLabSettings',
-                name: t('admin.authentication.gitlab'),
-                name_default: 'GitLab',
-                onConfigLoad: (config) => {
-                    const newState = {};
-                    newState['GitLabSettings.Url'] = config.GitLabSettings.UserAPIEndpoint.replace('/api/v4/user', '');
-                    return newState;
-                },
-                onConfigSave: (config) => {
-                    const newConfig = {...config};
-                    newConfig.GitLabSettings.UserAPIEndpoint = config.GitLabSettings.Url.replace(/\/$/, '') + '/api/v4/user';
-                    return newConfig;
-                },
-                settings: [
-                    {
-                        type: Constants.SettingsTypes.TYPE_BOOL,
-                        key: 'GitLabSettings.Enable',
-                        label: t('admin.gitlab.enableTitle'),
-                        label_default: 'Enable authentication with GitLab: ',
-                        help_text: t('admin.gitlab.enableDescription'),
-                        help_text_default: "When true, Mattermost allows team creation and account signup using GitLab OAuth.\n \n1. Log in to your GitLab account and go to Profile Settings -> Applications.\n2. Enter Redirect URIs \"'<your-mattermost-url>'/login/gitlab/complete\" (example: http://localhost:8065/login/gitlab/complete) and \"<your-mattermost-url>/signup/gitlab/complete\".\n3. Then use \"Application Secret Key\" and \"Application ID\" fields from GitLab to complete the options below.\n4. Complete the Endpoint URLs below.",
-                        help_text_markdown: true,
-                        isDisabled: it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.AUTHENTICATION.OPENID)),
-                    },
-                    {
-                        type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.Id',
-                        label: t('admin.gitlab.clientIdTitle'),
-                        label_default: 'Application ID:',
-                        help_text: t('admin.gitlab.clientIdDescription'),
-                        help_text_default: 'Obtain this value via the instructions above for logging into GitLab.',
-                        placeholder: t('admin.gitlab.clientIdExample'),
-                        placeholder_default: 'E.g.: "jcuS8PuvcpGhpgHhlcpT1Mx42pnqMxQY"',
-                        isDisabled: it.any(
-                            it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.AUTHENTICATION.OPENID)),
-                            it.stateIsFalse('GitLabSettings.Enable'),
-                        ),
-                    },
-                    {
-                        type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.Secret',
-                        label: t('admin.gitlab.clientSecretTitle'),
-                        label_default: 'Application Secret Key:',
-                        help_text: t('admin.gitlab.clientSecretDescription'),
-                        help_text_default: 'Obtain this value via the instructions above for logging into GitLab.',
-                        placeholder: t('admin.gitlab.clientSecretExample'),
-                        placeholder_default: 'E.g.: "jcuS8PuvcpGhpgHhlcpT1Mx42pnqMxQY"',
-                        isDisabled: it.any(
-                            it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.AUTHENTICATION.OPENID)),
-                            it.stateIsFalse('GitLabSettings.Enable'),
-                        ),
-                    },
-                    {
-                        type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.Url',
-                        label: t('admin.gitlab.siteUrl'),
-                        label_default: 'GitLab Site URL:',
-                        help_text: t('admin.gitlab.siteUrlDescription'),
-                        help_text_default: 'Enter the URL of your GitLab instance, e.g. https://example.com:3000. If your GitLab instance is not set up with SSL, start the URL with http:// instead of https://.',
-                        placeholder: t('admin.gitlab.siteUrlExample'),
-                        placeholder_default: 'E.g.: https://',
-                        isDisabled: it.any(
-                            it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.AUTHENTICATION.OPENID)),
-                            it.stateIsFalse('GitLabSettings.Enable'),
-                        ),
-                    },
-                    {
-                        type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.UserAPIEndpoint',
-                        label: t('admin.gitlab.userTitle'),
-                        label_default: 'User API Endpoint:',
-                        dynamic_value: (value, config, state) => {
-                            if (state['GitLabSettings.Url']) {
-                                return state['GitLabSettings.Url'].replace(/\/$/, '') + '/api/v4/user';
-                            }
-                            return '';
-                        },
-                        isDisabled: true,
-                    },
-                    {
-                        type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.AuthEndpoint',
-                        label: t('admin.gitlab.authTitle'),
-                        label_default: 'Auth Endpoint:',
-                        dynamic_value: (value, config, state) => {
-                            if (state['GitLabSettings.Url']) {
-                                return state['GitLabSettings.Url'].replace(/\/$/, '') + '/oauth/authorize';
-                            }
-                            return '';
-                        },
-                        isDisabled: true,
-                    },
-                    {
-                        type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.TokenEndpoint',
-                        label: t('admin.gitlab.tokenTitle'),
-                        label_default: 'Token Endpoint:',
-                        dynamic_value: (value, config, state) => {
-                            if (state['GitLabSettings.Url']) {
-                                return state['GitLabSettings.Url'].replace(/\/$/, '') + '/oauth/token';
-                            }
-                            return '';
-                        },
-                        isDisabled: true,
-                    },
-                ],
-            },
-        },
         oauth: {
             url: 'authentication/oauth',
             title: t('admin.sidebar.oauth'),
@@ -5091,49 +4941,6 @@ const AdminDefinition = {
                         isDisabled: it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.ABOUT.EDITION_AND_LICENSE)),
                     },
                 ],
-            },
-        },
-    },
-    plugins: {
-        icon: 'fa-plug',
-        sectionTitle: t('admin.sidebar.plugins'),
-        sectionTitleDefault: 'Plugins',
-        id: 'plugins',
-        isHidden: it.not(it.userHasReadPermissionOnResource('plugins')),
-        plugin_management: {
-            url: 'plugins/plugin_management',
-            title: t('admin.plugins.pluginManagement'),
-            title_default: 'Plugin Management',
-            searchableStrings: [
-                'admin.plugin.management.title',
-                'admin.plugins.settings.enable',
-                'admin.plugins.settings.enableDesc',
-                'admin.plugin.uploadTitle',
-                'admin.plugin.installedTitle',
-                'admin.plugin.installedDesc',
-                'admin.plugin.uploadDesc',
-                'admin.plugin.uploadDisabledDesc',
-                'admin.plugins.settings.enableMarketplace',
-                'admin.plugins.settings.enableMarketplaceDesc',
-                'admin.plugins.settings.enableRemoteMarketplace',
-                'admin.plugins.settings.enableRemoteMarketplaceDesc',
-                'admin.plugins.settings.automaticPrepackagedPlugins',
-                'admin.plugins.settings.automaticPrepackagedPluginsDesc',
-                'admin.plugins.settings.marketplaceUrl',
-                'admin.plugins.settings.marketplaceUrlDesc',
-            ],
-            isDisabled: it.not(it.userHasWritePermissionOnResource('plugins')),
-            schema: {
-                id: 'PluginManagementSettings',
-                component: PluginManagement,
-            },
-        },
-        custom: {
-            url: 'plugins/plugin_:plugin_id',
-            isDisabled: it.not(it.userHasWritePermissionOnResource('plugins')),
-            schema: {
-                id: 'CustomPluginSettings',
-                component: CustomPluginSettings,
             },
         },
     },

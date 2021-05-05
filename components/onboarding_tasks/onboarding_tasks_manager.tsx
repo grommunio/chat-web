@@ -9,7 +9,6 @@ import {matchPath, useLocation} from 'react-router-dom';
 import {trackEvent as trackEventAction} from 'actions/telemetry_actions';
 import {setProductMenuSwitcherOpen} from 'actions/views/product_menu';
 import {setStatusDropdown} from 'actions/views/status_dropdown';
-import {openModal} from 'actions/views/modals';
 import {
     AutoTourStatus,
     FINISHED,
@@ -17,7 +16,6 @@ import {
     TTNameMapToATStatusKey,
     TutorialTourName,
 } from 'components/onboarding_tour';
-import StartTrialModal from 'components/start_trial_modal';
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/common';
 
@@ -33,7 +31,7 @@ import {
     switchToChannels,
 } from 'actions/views/onboarding_tasks';
 
-import {Constants, ModalIdentifiers, TELEMETRY_CATEGORIES} from 'utils/constants';
+import {Constants} from 'utils/constants';
 import {OnboardingPreferences} from 'components/preparing_workspace/preparing_workspace';
 
 import {generateTelemetryTag} from './utils';
@@ -244,20 +242,7 @@ export const useHandleOnBoardingTaskTrigger = () => {
                 value: 'true',
             }];
             dispatch(savePreferences(currentUserId, preferences));
-            window.open('https://mattermost.com/download/', '_blank', 'noopener,noreferrer');
-            break;
-        }
-        case OnboardingTasksName.START_TRIAL: {
-            trackEventAction(
-                TELEMETRY_CATEGORIES.SELF_HOSTED_START_TRIAL_TASK_LIST,
-                'open_start_trial_modal',
-            );
-            dispatch(openModal({
-                modalId: ModalIdentifiers.START_TRIAL_MODAL,
-                dialogType: StartTrialModal,
-            }));
-
-            handleSaveData(taskName, TaskNameMapToSteps[taskName].FINISHED, true);
+            window.open('https://grommunio.com/download/', '_blank', 'noopener,noreferrer');
             break;
         }
         default:

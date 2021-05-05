@@ -87,14 +87,14 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
             <div>
                 <FormattedMessage
                     id='about.teamEditionLearn'
-                    defaultMessage='Join the Mattermost community at '
+                    defaultMessage='Join the grommunio community at '
                 />
                 <a
                     target='_blank'
                     rel='noopener noreferrer'
-                    href='https://mattermost.com/community/'
+                    href='https://grommunio.com/'
                 >
-                    {'mattermost.com/community/'}
+                    {'grommunio.com'}
                 </a>
             </div>
         );
@@ -132,12 +132,6 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
             );
 
             if (license.IsLicensed === 'true') {
-                title = (
-                    <FormattedMessage
-                        id='about.enterpriseEditione1'
-                        defaultMessage='Enterprise Edition'
-                    />
-                );
                 licensee = (
                     <div className='form-group'>
                         <FormattedMessage
@@ -213,7 +207,7 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
                     >
                         <FormattedMessage
                             id='about.title'
-                            values={{appTitle: config.SiteName || 'Mattermost'}}
+                            values={{appTitle: config.SiteName || 'grommunio chat'}}
                             defaultMessage='About {appTitle}'
                         />
                     </Modal.Title>
@@ -224,15 +218,13 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
                             <MattermostLogo/>
                         </div>
                         <div>
-                            <h3 className='about-modal__title'>
-                                <strong>{'Mattermost'} {title}</strong>
-                            </h3>
+                            <h3 className='about-modal__title'>{'grommunio chat'}</h3>
                             <p className='about-modal__subtitle pb-2'>{subTitle}</p>
                             <div className='form-group less'>
                                 <div>
                                     <FormattedMessage
                                         id='about.version'
-                                        defaultMessage='Mattermost Version:'
+                                        defaultMessage='grommunio chat Version:'
                                     />
                                     <span id='versionString'>{'\u00a0' + mmversion}</span>
                                 </div>
@@ -278,7 +270,7 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
                         <p>
                             <FormattedMarkdownMessage
                                 id='about.notice'
-                                defaultMessage='Mattermost is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps.'
+                                defaultMessage='Mattermost is made possible by the open source software used in our [server](!https://docs.grommunio.com/user/chat.html), [desktop](!https://docs.grommunio.com/user/chat.html) and [mobile](!https://docs.grommunio.com/user/chat.html) apps.'
                             />
                         </p>
                     </div>

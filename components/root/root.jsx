@@ -119,7 +119,6 @@ export default class Root extends React.PureComponent {
         actions: PropTypes.shape({
             loadMeAndConfig: PropTypes.func.isRequired,
             emitBrowserWindowResized: PropTypes.func.isRequired,
-            getFirstAdminSetupComplete: PropTypes.func.isRequired,
             getProfiles: PropTypes.func.isRequired,
         }).isRequired,
         plugins: PropTypes.array,
@@ -297,12 +296,6 @@ export default class Root extends React.PureComponent {
 
         const useCaseOnboarding = getUseCaseOnboarding(storeState);
         if (!useCaseOnboarding) {
-            GlobalActions.redirectUserToDefaultTeam();
-            return;
-        }
-
-        const firstAdminSetupComplete = await this.props.actions.getFirstAdminSetupComplete();
-        if (firstAdminSetupComplete?.data) {
             GlobalActions.redirectUserToDefaultTeam();
             return;
         }

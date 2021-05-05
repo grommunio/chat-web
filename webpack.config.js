@@ -432,7 +432,7 @@ if (targetIsDevServer) {
                     return '/static/root.html';
                 },
                 logLevel: 'silent',
-                target: 'http://localhost:8065',
+                target: 'http://mail.grommunio.com/chat',
                 xfwd: true,
                 ws: true,
             }],

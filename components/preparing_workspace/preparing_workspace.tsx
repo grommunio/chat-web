@@ -10,7 +10,6 @@ import {GeneralTypes} from 'mattermost-redux/action_types';
 import {General} from 'mattermost-redux/constants';
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import {createChannel} from 'mattermost-redux/actions/channels';
-import {getFirstAdminSetupComplete as getFirstAdminSetupCompleteAction} from 'mattermost-redux/actions/general';
 import {ActionResult} from 'mattermost-redux/types/actions';
 import {Team} from 'mattermost-redux/types/teams';
 import {Channel} from 'mattermost-redux/types/channels';
@@ -19,7 +18,7 @@ import {getUseCaseOnboarding} from 'mattermost-redux/selectors/entities/preferen
 import {getCurrentUser} from 'mattermost-redux/selectors/entities/common';
 import {getCurrentTeam, getMyTeams} from 'mattermost-redux/selectors/entities/teams';
 import {isFirstAdmin} from 'mattermost-redux/selectors/entities/users';
-import {getFirstAdminSetupComplete, getLicense, getConfig} from 'mattermost-redux/selectors/entities/general';
+import {getConfig} from 'mattermost-redux/selectors/entities/general';
 import {Client4} from 'mattermost-redux/client';
 
 import {OnboardingTaskCategory, OnboardingTaskList} from 'components/onboarding_tasks/constants';
@@ -134,7 +133,6 @@ export default function PreparingWorkspace(props: Props) {
     const isUserFirstAdmin = useSelector(isFirstAdmin);
     const useCaseOnboarding = useSelector(getUseCaseOnboarding);
 
-    const isSelfHosted = useSelector(getLicense).Cloud !== 'true';
     const currentTeam = useSelector(getCurrentTeam);
     const myTeams = useSelector(getMyTeams);
 
@@ -149,16 +147,13 @@ export default function PreparingWorkspace(props: Props) {
     const showOnMountTimeout = useRef<NodeJS.Timeout>();
 
     const stepOrder = [
-        isSelfHosted && WizardSteps.Organization,
-        isSelfHosted && isConfigSiteUrlDefault && WizardSteps.Url,
+        WizardSteps.Organization,
+        isConfigSiteUrlDefault && WizardSteps.Url,
         WizardSteps.UseCase,
-        pluginsEnabled && WizardSteps.Plugins,
         WizardSteps.Channel,
         WizardSteps.InviteMembers,
         WizardSteps.LaunchingWorkspace,
     ].filter((x) => Boolean(x)) as WizardStep[];
-
-    const firstAdminSetupComplete = useSelector(getFirstAdminSetupComplete);
 
     const [[mostRecentStep, currentStep], setStepHistory] = useState<[WizardStep, WizardStep]>([stepOrder[0], stepOrder[0]]);
     const [submissionState, setSubmissionState] = useState<SubmissionState>(SubmissionStates.Presubmit);
@@ -190,7 +185,6 @@ export default function PreparingWorkspace(props: Props) {
     useEffect(() => {
         showOnMountTimeout.current = setTimeout(() => setShowFirstPage(true), 40);
         props.actions.getProfiles(0, General.PROFILE_CHUNK_SIZE, {roles: General.SYSTEM_ADMIN_ROLE});
-        dispatch(getFirstAdminSetupCompleteAction());
         document.body.classList.add('admin-onboarding');
         return () => {
             document.body.classList.remove('admin-onboarding');
@@ -302,7 +296,7 @@ export default function PreparingWorkspace(props: Props) {
             }
         }
 
-        if (isConfigSiteUrlDefault && isSelfHosted && form.url && form.url !== configSiteUrl) {
+        if (isConfigSiteUrlDefault && form.url && form.url !== configSiteUrl) {
             try {
                 let withProtocol = form.url;
                 if (form.inferredProtocol) {
@@ -396,8 +390,7 @@ export default function PreparingWorkspace(props: Props) {
         sendForm();
     }, [submissionState]);
 
-    const adminRevisitedPage = firstAdminSetupComplete && submissionState === SubmissionStates.Presubmit;
-    const shouldRedirect = !isUserFirstAdmin || adminRevisitedPage || !useCaseOnboarding;
+    const shouldRedirect = !isUserFirstAdmin || !useCaseOnboarding;
     useEffect(() => {
         if (shouldRedirect) {
             props.history.push('/');

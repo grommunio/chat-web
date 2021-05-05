@@ -176,30 +176,11 @@ describe('Actions.General', () => {
         });
     });
 
-    it('getFirstAdminVisitMarketplaceStatus', async () => {
-        const responseData = {
-            name: 'FirstAdminVisitMarketplace',
-            value: 'false',
-        };
-
-        nock(Client4.getPluginsRoute()).
-            get('/marketplace/first_admin_visit').
-            query(true).
-            reply(200, responseData);
-
-        await Actions.getFirstAdminVisitMarketplaceStatus()(store.dispatch, store.getState);
-        const {firstAdminVisitMarketplaceStatus} = store.getState().entities.general;
-        assert.strictEqual(firstAdminVisitMarketplaceStatus, false);
-    });
-
     it('setFirstAdminVisitMarketplaceStatus', async () => {
         nock(Client4.getPluginsRoute()).
             post('/marketplace/first_admin_visit').
             reply(200, OK_RESPONSE);
 
         await Actions.setFirstAdminVisitMarketplaceStatus()(store.dispatch, store.getState);
-
-        const {firstAdminVisitMarketplaceStatus} = store.getState().entities.general;
-        assert.strictEqual(firstAdminVisitMarketplaceStatus, true);
     });
 });

@@ -6,8 +6,7 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
 import * as Utils from 'utils/utils.jsx';
-import statusGreen from 'images/status_green.png';
-import statusYellow from 'images/status_yellow.png';
+import statusLogo from 'images/logo.svg';
 import ReloadIcon from 'components/widgets/icons/fa_reload_icon';
 
 export default class ClusterTable extends React.PureComponent {
@@ -21,7 +20,7 @@ export default class ClusterTable extends React.PureComponent {
             <img
                 alt='version mismatch'
                 className='cluster-status'
-                src={statusGreen}
+                src={statusLogo}
             />
         );
 
@@ -29,7 +28,7 @@ export default class ClusterTable extends React.PureComponent {
             <img
                 alt='config mismatch'
                 className='cluster-status'
-                src={statusGreen}
+                src={statusLogo}
             />
         );
 
@@ -49,7 +48,7 @@ export default class ClusterTable extends React.PureComponent {
                     <img
                         alt='version mismatch'
                         className='cluster-status'
-                        src={statusYellow}
+                        src={statusLogo}
                     />
                 );
             }
@@ -59,7 +58,7 @@ export default class ClusterTable extends React.PureComponent {
                     <img
                         alt='config mismatch'
                         className='cluster-status'
-                        src={statusYellow}
+                        src={statusLogo}
                     />
                 );
             }
@@ -87,7 +86,7 @@ export default class ClusterTable extends React.PureComponent {
                     <img
                         alt='Cluster status'
                         className='cluster-status'
-                        src={statusYellow}
+                        src={statusLogo}
                     />
                 );
             } else {
@@ -95,7 +94,7 @@ export default class ClusterTable extends React.PureComponent {
                     <img
                         alt='Cluster status'
                         className='cluster-status'
-                        src={statusGreen}
+                        src={statusLogo}
                     />
                 );
             }

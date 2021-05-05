@@ -25,6 +25,8 @@ import githubIcon from 'images/themes/code_themes/github.png';
 import monokaiIcon from 'images/themes/code_themes/monokai.png';
 import solarizedDarkIcon from 'images/themes/code_themes/solarized-dark.png';
 import solarizedLightIcon from 'images/themes/code_themes/solarized-light.png';
+import grommunioThemeImage from 'images/themes/grommunio.png';
+import grommunioDarkThemeImage from 'images/themes/grommunio_dark.png';
 import logoWebhook from 'images/webhook_icon.jpg';
 
 import {t} from 'utils/i18n';
@@ -835,8 +837,8 @@ export const DraggingStateTypes = {
 };
 
 export const AboutLinks = {
-    TERMS_OF_SERVICE: 'https://about.mattermost.com/default-terms/',
-    PRIVACY_POLICY: 'https://about.mattermost.com/default-privacy-policy/',
+    TERMS_OF_SERVICE: 'https://docs.grommunio.com/user/chat.html',
+    PRIVACY_POLICY: 'https://docs.grommunio.com/user/chat.html',
 };
 
 export const CloudLinks = {
@@ -1214,6 +1216,7 @@ export const Constants = {
     EMAIL_SERVICE: 'email',
     LDAP_SERVICE: 'ldap',
     SAML_SERVICE: 'saml',
+    PAM_SERVICE: 'pam',
     USERNAME_SERVICE: 'username',
     SIGNIN_CHANGE: 'signin_change',
     PASSWORD_CHANGE: 'password_change',
@@ -1277,6 +1280,64 @@ export const Constants = {
     DEFAULT_EMOJI_PICKER_LEFT_OFFSET: 87,
     DEFAULT_EMOJI_PICKER_RIGHT_OFFSET: 15,
     EMOJI_PICKER_WIDTH_OFFSET: 295,
+    THEMES: {
+        default: {
+            type: 'grommunio',
+            sidebarBg: '#1f1f1f',
+            sidebarText: '#ffffff',
+            sidebarUnreadText: '#ffffff',
+            sidebarTextHoverBg: '#0072b0',
+            sidebarTextActiveBorder: '#2DCAFF',
+            sidebarTextActiveColor: '#ffffff',
+            sidebarHeaderBg: '#2f2f2f',
+            sidebarTeamBarBg: '#4f4f4f',
+            sidebarHeaderTextColor: '#ffffff',
+            onlineIndicator: '#76ce44',
+            awayIndicator: '#f9c043',
+            dndIndicator: '#e54141',
+            mentionBg: '#ffffff',
+            mentionColor: '#383E5F',
+            centerChannelBg: '#ffffff',
+            centerChannelColor: '#1f1f1f',
+            newMessageSeparator: '#f98d5e',
+            linkColor: '#0072B0',
+            buttonBg: '#0072b0',
+            buttonColor: '#ffffff',
+            errorTextColor: '#fa5e5d',
+            mentionHighlightBg: '#f7d946',
+            mentionHighlightLink: '#293377',
+            codeTheme: 'github',
+            image: grommunioThemeImage,
+        },
+        grommunioDark: {
+            type: 'grommunio Dark',
+            sidebarBg: '#1f1f1f',
+            sidebarText: '#ffffff',
+            sidebarUnreadText: '#ffffff',
+            sidebarTextHoverBg: '#5f5f5f',
+            sidebarTextActiveBorder: '#2DCAFF',
+            sidebarTextActiveColor: '#ffffff',
+            sidebarHeaderBg: '#1a1a1a',
+            sidebarTeamBarBg: '#0f0f0f',
+            sidebarHeaderTextColor: '#ffffff',
+            onlineIndicator: '#76ce44',
+            awayIndicator: '#f9c043',
+            dndIndicator: '#e54141',
+            mentionBg: '#ffffff',
+            mentionColor: '#2f2f2f',
+            centerChannelBg: '#1f1f1f',
+            centerChannelColor: '#ffffff',
+            newMessageSeparator: '#f98d5e',
+            linkColor: '#2DCAFF',
+            buttonBg: '#0072b0',
+            buttonColor: '#ffffff',
+            errorTextColor: '#fa5e5d',
+            mentionHighlightBg: '#f7d946',
+            mentionHighlightLink: '#293377',
+            codeTheme: 'monokai',
+            image: grommunioDarkThemeImage,
+        },
+    },
     THEME_ELEMENTS: [
         {
             group: 'sidebarElements',

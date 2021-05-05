@@ -1,7 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-export type LegacyThemeKey = 'default' | 'organization' | 'mattermostDark' | 'windows10';
+export type LegacyThemeKey = 'default' | 'organization' | 'mattermostDark';
 
 export type ThemeKey = 'denim' | 'sapphire' | 'quartz' | 'indigo' | 'onyx';
 

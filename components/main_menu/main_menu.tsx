@@ -190,15 +190,6 @@ export class MainMenu extends React.PureComponent<Props> {
                     </SystemPermissionGate>
                 </Menu.Group>
                 <Menu.Group>
-                    <SystemPermissionGate
-                        permissions={[Permissions.SYSCONSOLE_WRITE_ABOUT_EDITION_AND_LICENSE]}
-                    >
-                        <Menu.StartTrial
-                            id='startTrial'
-                        />
-                    </SystemPermissionGate>
-                </Menu.Group>
-                <Menu.Group>
                     <Menu.ItemAction
                         id='recentMentions'
                         onClick={this.searchMentions}
@@ -367,7 +358,7 @@ export class MainMenu extends React.PureComponent<Props> {
                         id='about'
                         modalId={ModalIdentifiers.ABOUT}
                         dialogType={AboutBuildModal}
-                        text={formatMessage({id: 'navbar_dropdown.about', defaultMessage: 'About {appTitle}'}, {appTitle: this.props.siteName || 'Mattermost'})}
+                        text={formatMessage({id: 'navbar_dropdown.about', defaultMessage: 'About {appTitle}'}, {appTitle: this.props.siteName || 'grommunio chat'})}
                         icon={<i className='fa fa-info'/>}
                     />
                 </Menu.Group>

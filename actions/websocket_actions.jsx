@@ -525,9 +525,6 @@ export function handleEvent(msg) {
     case SocketEvents.CLOUD_PAYMENT_STATUS_UPDATED:
         dispatch(handleCloudPaymentStatusUpdated(msg));
         break;
-    case SocketEvents.FIRST_ADMIN_VISIT_MARKETPLACE_STATUS_RECEIVED:
-        handleFirstAdminVisitMarketplaceStatusReceivedEvent(msg);
-        break;
     case SocketEvents.THREAD_FOLLOW_CHANGED:
         dispatch(handleThreadFollowChanged(msg));
         break;
@@ -1501,11 +1498,6 @@ function handleRefreshAppsBindings() {
         doDispatch(fetchRHSAppsBindings(channelID));
         return {data: true};
     };
-}
-
-function handleFirstAdminVisitMarketplaceStatusReceivedEvent(msg) {
-    const receivedData = JSON.parse(msg.data.firstAdminVisitMarketplaceStatus);
-    store.dispatch({type: GeneralTypes.FIRST_ADMIN_VISIT_MARKETPLACE_STATUS_RECEIVED, data: receivedData});
 }
 
 function handleThreadReadChanged(msg) {
