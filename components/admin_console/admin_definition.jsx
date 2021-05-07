@@ -5924,8 +5924,8 @@ const AdminDefinition = {
                         options: [
                             {
                                 value: 'default',
-                                display_name: 'Mattermost',
-                                display_name_default: 'Mattermost',
+                                display_name: 'grommunio',
+                                display_name_default: 'grommunio',
                             },
                             {
                                 value: 'organization',
@@ -5933,9 +5933,9 @@ const AdminDefinition = {
                                 display_name_default: 'Organization',
                             },
                             {
-                                value: 'mattermostDark',
-                                display_name: 'Mattermost Dark',
-                                display_name_default: 'Mattermost Dark',
+                                value: 'grommunioDark',
+                                display_name: 'grommunio Dark',
+                                display_name_default: 'grommunio Dark',
                             },
                             {
                                 value: 'windows10',
