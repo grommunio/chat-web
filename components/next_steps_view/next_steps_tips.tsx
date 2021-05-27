@@ -15,7 +15,6 @@ import {openModal, closeModal} from 'actions/views/modals';
 import Card from 'components/card/card';
 import MoreChannels from 'components/more_channels';
 import TeamMembersModal from 'components/team_members_modal';
-import MarketplaceModal from 'components/plugin_marketplace';
 import RemoveNextStepsModal from 'components/sidebar/sidebar_next_steps/remove_next_steps_modal';
 import downloadApps from 'images/download-app.svg';
 
@@ -113,7 +112,7 @@ export default function NextStepsTips(props: Props) {
     const dispatch = useDispatch();
     const openPluginMarketplace = () => {
         trackEvent(getAnalyticsCategory(props.isFirstAdmin), 'click_add_plugins');
-        openModal({modalId: ModalIdentifiers.PLUGIN_MARKETPLACE, dialogType: MarketplaceModal})(dispatch);
+        openModal({modalId: ModalIdentifiers.PLUGIN_MARKETPLACE})(dispatch);
     };
     const openMoreChannels = openModal({modalId: ModalIdentifiers.MORE_CHANNELS, dialogType: MoreChannels});
 
