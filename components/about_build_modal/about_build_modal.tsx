@@ -142,12 +142,6 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
             );
 
             if (license.IsLicensed === 'true') {
-                title = (
-                    <FormattedMessage
-                        id='about.enterpriseEditione1'
-                        defaultMessage='Enterprise Edition'
-                    />
-                );
                 licensee = (
                     <div className='form-group'>
                         <FormattedMessage
