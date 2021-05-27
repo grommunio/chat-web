@@ -26,7 +26,6 @@ import TeamMembersModal from 'components/team_members_modal';
 import TeamSettingsModal from 'components/team_settings_modal';
 import AboutBuildModal from 'components/about_build_modal';
 import AddGroupsToTeamModal from 'components/add_groups_to_team_modal';
-import MarketplaceModal from 'components/plugin_marketplace';
 import UpgradeLink from 'components/widgets/links/upgrade_link';
 
 import Menu from 'components/widgets/menu/menu';
@@ -51,7 +50,6 @@ class MainMenu extends React.PureComponent {
         canManageSystemBots: PropTypes.bool.isRequired,
         canCreateOrDeleteCustomEmoji: PropTypes.bool.isRequired,
         canManageIntegrations: PropTypes.bool.isRequired,
-        enablePluginMarketplace: PropTypes.bool.isRequired,
         experimentalPrimaryTeam: PropTypes.string,
         helpLink: PropTypes.string,
         reportAProblemLink: PropTypes.string,
@@ -342,19 +340,6 @@ class MainMenu extends React.PureComponent {
                         to={'/' + this.props.teamName + '/integrations'}
                         text={formatMessage({id: 'navbar_dropdown.integrations', defaultMessage: 'Integrations'})}
                     />
-                    <TeamPermissionGate
-                        teamId={this.props.teamId}
-                        permissions={[Permissions.SYSCONSOLE_WRITE_PLUGINS]}
-                    >
-                        <Menu.ItemToggleModalRedux
-                            id='marketplaceModal'
-                            modalId={ModalIdentifiers.PLUGIN_MARKETPLACE}
-                            show={!this.props.mobile && this.props.enablePluginMarketplace}
-                            dialogType={MarketplaceModal}
-                            text={formatMessage({id: 'navbar_dropdown.marketplace', defaultMessage: 'Marketplace'})}
-                            showUnread={!this.props.firstAdminVisitMarketplaceStatus}
-                        />
-                    </TeamPermissionGate>
                     <Menu.ItemLink
                         id='customEmojis'
                         show={!this.props.mobile && this.props.enableCustomEmoji && this.props.canCreateOrDeleteCustomEmoji}
