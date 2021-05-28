@@ -27,7 +27,6 @@ import OpenIdConvert from './openid_convert';
 import Audits from './audits';
 import CustomUrlSchemesSetting from './custom_url_schemes_setting.jsx';
 import CustomEnableDisableGuestAccountsSetting from './custom_enable_disable_guest_accounts_setting';
-import LicenseSettings from './license_settings';
 import PermissionSchemesSettings from './permission_schemes_settings';
 import PermissionSystemSchemeSettings from './permission_schemes_settings/permission_system_scheme_settings';
 import PermissionTeamSchemeSettings from './permission_schemes_settings/permission_team_scheme_settings';
@@ -218,35 +217,6 @@ const usesLegacyOauth = (config, state, license, enterpriseReady, consoleAccess,
 };
 
 const AdminDefinition = {
-    about: {
-        icon: 'fa-info-circle',
-        sectionTitle: t('admin.sidebar.about'),
-        sectionTitleDefault: 'About',
-        isHidden: it.any(
-            it.configIsTrue('ExperimentalSettings', 'RestrictSystemAdmin'),
-            it.not(it.userHasReadPermissionOnResource('about')),
-        ),
-        license: {
-            url: 'about/license',
-            title: t('admin.sidebar.license'),
-            title_default: 'Edition and License',
-            searchableStrings: [
-                'admin.license.title',
-                'admin.license.uploadDesc',
-                'admin.license.keyRemove',
-                'admin.license.edition',
-                'admin.license.type',
-                'admin.license.key',
-                'Mattermost Enterprise Edition. Unlock enterprise features in this software through the purchase of a subscription from ',
-                'This software is offered under a commercial license.\n\nSee ENTERPRISE-EDITION-LICENSE.txt in your root install directory for details. See NOTICE.txt for information about open source software used in this system.',
-            ],
-            isDisabled: it.not(it.userHasWritePermissionOnResource('about')),
-            schema: {
-                id: 'LicenseSettings',
-                component: LicenseSettings,
-            },
-        },
-    },
     billing: {
         icon: 'fa-credit-card', // TODO: Need compass icon
         sectionTitle: t('admin.sidebar.billing'),
