@@ -776,8 +776,8 @@ export const DraggingStateTypes = {
 };
 
 export const AboutLinks = {
-    TERMS_OF_SERVICE: 'https://about.mattermost.com/default-terms/',
-    PRIVACY_POLICY: 'https://about.mattermost.com/default-privacy-policy/',
+    TERMS_OF_SERVICE: 'https://docs.grommunio.com/chat',
+    PRIVACY_POLICY: 'https://docs.grommunio.com/chat',
 };
 
 export const CloudLinks = {
