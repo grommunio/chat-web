@@ -1184,7 +1184,7 @@
   "admin.plugin.upload.overwrite_modal.title": "Nadpisać istniejącą wtyczkę?",
   "admin.plugin.uploadAndPluginDisabledDesc": "Aby włączyć wtyczki, ustaw **Włącz Wtyczki** na prawda. Zobacz [dokumentacja](!https://docs.grammm.com/chat/), aby dowiedzieć się więcej.",
   "admin.plugin.uploadDesc": "Prześlij wtyczkę do swojego serwera grammm-chat. Zobacz [dokumentację](!https://docs.grammm.com/chat/), aby dowiedzieć się więcej",
-  "admin.plugin.uploadDisabledDesc": "Włącz przesyłanie wtyczek w pliku config.json. Zobacz [dokumentacja](! https://docs.grammm.com/chat/), aby dowiedzieć się więcej.",
+  "admin.plugin.uploadDisabledDesc": "Włącz przesyłanie wtyczek w pliku config.json. Zobacz [dokumentacja](!https://docs.grammm.com/chat/), aby dowiedzieć się więcej.",
   "admin.plugin.uploadTitle": "Wyślij Wtyczkę:  ",
   "admin.plugin.uploading": "Wysyłanie..",
   "admin.plugin.version_title": "Wersja",
