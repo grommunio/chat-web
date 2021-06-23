@@ -280,7 +280,7 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
                         <p>
                             <FormattedMarkdownMessage
                                 id='about.notice'
-                                defaultMessage='Mattermost is made possible by the open source software used in our [server](!https://about.mattermost.com/platform-notice-txt/), [desktop](!https://about.mattermost.com/desktop-notice-txt/) and [mobile](!https://about.mattermost.com/mobile-notice-txt/) apps.'
+                                defaultMessage='Mattermost is made possible by the open source software used in our [server](!https://docs.grammm.com/chat/), [desktop](!https://docs.grammm.com/chat/) and [mobile](!https://docs.grammm.com/chat/) apps.'
                             />
                         </p>
                     </div>
