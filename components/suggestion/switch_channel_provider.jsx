@@ -15,6 +15,7 @@ import {
     getMyChannelMemberships,
     getChannelByName,
     getCurrentChannel,
+    getDirectTeammate,
     getAllRecentChannels,
 } from 'mattermost-redux/selectors/entities/channels';
 
@@ -81,54 +82,51 @@ class SwitchChannelSuggestion extends Suggestion {
             }
         }
 
-        let className = 'mentions__name';
+        let className = 'suggestion-list__item';
         if (isSelection) {
             className += ' suggestion--selected';
         }
 
         let name = channel.display_name;
         let description = '~' + channel.name;
-
         let icon;
         if (channelIsArchived) {
             icon = (
-                <div className='suggestion-list__icon suggestion-list__icon--large'>
+                <span className='suggestion-list__icon suggestion-list__icon--large'>
                     <i className='icon icon-archive-outline'/>
-                </div>
+                </span>
             );
         } else if (this.props.hasDraft) {
             icon = (
-                <div className='suggestion-list__icon suggestion-list__icon--large'>
+                <span className='suggestion-list__icon suggestion-list__icon--large'>
                     <i className='icon icon-pencil-outline'/>
-                </div>
+                </span>
             );
         } else if (channel.type === Constants.OPEN_CHANNEL) {
             icon = (
-                <div className='suggestion-list__icon suggestion-list__icon--large'>
+                <span className='suggestion-list__icon suggestion-list__icon--large'>
                     <i className='icon icon-globe'/>
-                </div>
+                </span>
             );
         } else if (channel.type === Constants.PRIVATE_CHANNEL) {
             icon = (
-                <div className='suggestion-list__icon suggestion-list__icon--large'>
+                <span className='suggestion-list__icon suggestion-list__icon--large'>
                     <i className='icon icon-lock-outline'/>
-                </div>
+                </span>
             );
         } else if (channel.type === Constants.GM_CHANNEL) {
             icon = (
-                <div className='suggestion-list__icon suggestion-list__icon--large'>
+                <span className='suggestion-list__icon suggestion-list__icon--large'>
                     <div className='status status--group'>{'G'}</div>
-                </div>
+                </span>
             );
         } else {
             icon = (
-                <div className='pull-left'>
-                    <ProfilePicture
-                        src={userImageUrl}
-                        status={teammate && teammate.is_bot ? null : status}
-                        size='sm'
-                    />
-                </div>
+                <ProfilePicture
+                    src={userImageUrl}
+                    status={teammate && teammate.is_bot ? null : status}
+                    size='sm'
+                />
             );
         }
 
@@ -227,11 +225,11 @@ function mapStateToPropsForSwitchChannelSuggestion(state, ownProps) {
     const draft = channelId ? getPostDraft(state, StoragePrefixes.DRAFT, channelId) : false;
     const user = channel && getUser(state, channel.userId);
     const userImageUrl = user && Utils.imageURLForUser(user.id, user.last_picture_update);
-    let dmChannelTeammate = channel && channel.type === Constants.DM_CHANNEL && Utils.getDirectTeammate(state, channel.id);
+    let dmChannelTeammate = channel && channel.type === Constants.DM_CHANNEL && getDirectTeammate(state, channel.id);
     const userItem = getUserByUsername(state, channel.name);
     const status = getStatusForUserId(state, channel.userId);
 
-    if (channel && Utils.isEmptyObject(dmChannelTeammate)) {
+    if (channel && !dmChannelTeammate) {
         dmChannelTeammate = getUser(state, channel.userId);
     }
 
