@@ -46,7 +46,11 @@ export function updateCommentDraft(rootId, draft) {
     if (draft) {
         localStorage.setItem(key, JSON.stringify(draft));
     } else {
+<<<<<<< HEAD
         localStorage.removeItem(key);
+=======
+        localStorage.removeItem(draft);
+>>>>>>> MM-37048 Temporarily store drafts in localStorage and rehydrate manually to fix persistence issues (#8411) (#8426)
     }
     return setGlobalItem(key, draft);
 }
