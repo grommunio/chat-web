@@ -21,8 +21,8 @@ import githubIcon from 'images/themes/code_themes/github.png';
 import monokaiIcon from 'images/themes/code_themes/monokai.png';
 import solarizedDarkIcon from 'images/themes/code_themes/solarized-dark.png';
 import solarizedLightIcon from 'images/themes/code_themes/solarized-light.png';
-import grammmThemeImage from 'images/themes/grammm.png';
-import grammmDarkThemeImage from 'images/themes/grammm_dark.png';
+import grommunioThemeImage from 'images/themes/grommunio.png';
+import grommunioDarkThemeImage from 'images/themes/grommunio_dark.png';
 import defaultThemeImage from 'images/themes/organization.png';
 import windows10ThemeImage from 'images/themes/windows_dark.png';
 import logoWebhook from 'images/webhook_icon.jpg';
@@ -685,8 +685,8 @@ export const DraggingStateTypes = {
 };
 
 export const AboutLinks = {
-    TERMS_OF_SERVICE: 'https://docs.grammm.com/chat',
-    PRIVACY_POLICY: 'https://docs.grammm.com/chat',
+    TERMS_OF_SERVICE: 'https://docs.grommunio.com/user/chat.html#chat-via-web',
+    PRIVACY_POLICY: 'https://docs.grommunio.com/user/chat.html#chat-via-web',
 };
 
 export const CloudLinks = {
@@ -1063,7 +1063,7 @@ export const Constants = {
     EMOJI_PICKER_WIDTH_OFFSET: 295,
     THEMES: {
         default: {
-            type: 'grammm',
+            type: 'grommunio',
             sidebarBg: '#1f1f1f',
             sidebarText: '#ffffff',
             sidebarUnreadText: '#ffffff',
@@ -1088,7 +1088,7 @@ export const Constants = {
             mentionHighlightBg: '#f7d946',
             mentionHighlightLink: '#293377',
             codeTheme: 'github',
-            image: grammmThemeImage,
+            image: grommunioThemeImage,
         },
         organization: {
             type: 'Organization',
@@ -1118,8 +1118,8 @@ export const Constants = {
             codeTheme: 'github',
             image: defaultThemeImage,
         },
-        grammmDark: {
-            type: 'grammm Dark',
+        grommunioDark: {
+            type: 'grommunio Dark',
             sidebarBg: '#1f1f1f',
             sidebarText: '#ffffff',
             sidebarUnreadText: '#ffffff',
@@ -1144,7 +1144,7 @@ export const Constants = {
             mentionHighlightBg: '#f7d946',
             mentionHighlightLink: '#293377',
             codeTheme: 'monokai',
-            image: grammmDarkThemeImage,
+            image: grommunioDarkThemeImage,
         },
         windows10: {
             type: 'Windows Dark',

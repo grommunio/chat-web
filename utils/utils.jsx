@@ -556,8 +556,8 @@ export function applyTheme(theme) {
         case 'Organization':
             dndIndicator = Constants.THEMES.organization.dndIndicator;
             break;
-        case 'grammm Dark':
-            dndIndicator = Constants.THEMES.grammmDark.dndIndicator;
+        case 'grommunio Dark':
+            dndIndicator = Constants.THEMES.grommunioDark.dndIndicator;
             break;
         case 'Windows Dark':
             dndIndicator = Constants.THEMES.windows10.dndIndicator;

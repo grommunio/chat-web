@@ -97,14 +97,14 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
             <div>
                 <FormattedMessage
                     id='about.teamEditionLearn'
-                    defaultMessage='Join the grammm community at '
+                    defaultMessage='Join the grommunio community at '
                 />
                 <a
                     target='_blank'
                     rel='noopener noreferrer'
-                    href='http://grammm.com/'
+                    href='http://grommunio.com/'
                 >
-                    {'grammm.com'}
+                    {'grommunio.com'}
                 </a>
             </div>
         );
@@ -217,7 +217,7 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
                     >
                         <FormattedMessage
                             id='about.title'
-                            values={{appTitle: config.SiteName || 'grammm chat'}}
+                            values={{appTitle: config.SiteName || 'grommunio chat'}}
                             defaultMessage='About {appTitle}'
                         />
                     </Modal.Title>
@@ -228,13 +228,13 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
                             <MattermostLogo/>
                         </div>
                         <div>
-                            <h3 className='about-modal__title'>{'grammm chat'}</h3>
+                            <h3 className='about-modal__title'>{'grommunio chat'}</h3>
                             <p className='about-modal__subtitle pb-2'>{subTitle}</p>
                             <div className='form-group less'>
                                 <div>
                                     <FormattedMessage
                                         id='about.version'
-                                        defaultMessage='grammm chat Version:'
+                                        defaultMessage='grommunio chat Version:'
                                     />
                                     <span id='versionString'>{'\u00a0' + mmversion}</span>
                                 </div>
@@ -280,7 +280,7 @@ export default class AboutBuildModal extends React.PureComponent<Props, State> {
                         <p>
                             <FormattedMarkdownMessage
                                 id='about.notice'
-                                defaultMessage='Mattermost is made possible by the open source software used in our [server](!https://docs.grammm.com/chat/), [desktop](!https://docs.grammm.com/chat/) and [mobile](!https://docs.grammm.com/chat/) apps.'
+                                defaultMessage='Mattermost is made possible by the open source software used in our [server](!https://docs.grommunio.com/user/chat.html#chat-via-web), [desktop](!https://docs.grommunio.com/user/chat.html#chat-via-web) and [mobile](!https://docs.grommunio.com/user/chat.html#chat-via-web) apps.'
                             />
                         </p>
                     </div>
