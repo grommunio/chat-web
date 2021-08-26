@@ -215,7 +215,11 @@ jobs:
           at: ~/mattermost/
       - run:
           command: |
+<<<<<<< HEAD
             curl -f -o server.tar.gz https://pr-builds.mattermost.com/mattermost-server/$(echo "${CIRCLE_BRANCH}" | sed 's/pull\//PR-/g')/mattermost-enterprise-linux-amd64.tar.gz || curl -f -o server.tar.gz https://s3.amazonaws.com/releases.mattermost.com/gitlab/bundle/release-5.37/mattermost-enterprise-linux-amd64.tar.gz
+=======
+            curl -f -o server.tar.gz https://pr-builds.mattermost.com/mattermost-server/$(echo "${CIRCLE_BRANCH}" | sed 's/pull\//PR-/g')/mattermost-enterprise-linux-amd64.tar.gz || curl -f -o server.tar.gz https://s3.amazonaws.com/releases.mattermost.com/gitlab/bundle/release-5.39/mattermost-enterprise-linux-amd64.tar.gz
+>>>>>>> Lock CI from /release-5.39 (#8711)
 
             tar xf server.tar.gz
             rm -rf mattermost/client
