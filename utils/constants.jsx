@@ -778,8 +778,8 @@ export const DraggingStateTypes = {
 };
 
 export const AboutLinks = {
-    TERMS_OF_SERVICE: 'https://docs.grommunio.com/chat',
-    PRIVACY_POLICY: 'https://docs.grommunio.com/chat',
+    TERMS_OF_SERVICE: 'https://docs.grommunio.com/user/chat.html',
+    PRIVACY_POLICY: 'https://docs.grommunio.com/user/chat.html',
 };
 
 export const CloudLinks = {
