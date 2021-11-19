@@ -22,7 +22,6 @@ export default class SidebarHeaderDropdownButton extends React.PureComponent {
         currentUser: PropTypes.object.isRequired,
         teamDisplayName: PropTypes.string.isRequired,
         openModal: PropTypes.func,
-        getFirstAdminVisitMarketplaceStatus: PropTypes.func,
         showUnread: PropTypes.bool,
     };
 
@@ -41,18 +40,6 @@ export default class SidebarHeaderDropdownButton extends React.PureComponent {
             dialogType: CustomStatusModal,
         };
         this.props.openModal(customStatusInputModalData);
-    }
-
-    getFirstAdminVisitMarketplaceStatus = async () => {
-        const {data} = await this.props.getFirstAdminVisitMarketplaceStatus();
-        this.setState({showUnread: !data});
-    }
-
-    componentDidMount() {
-        const isSystemAdmin = isAdmin(this.props.currentUser.roles);
-        if (isSystemAdmin) {
-            this.getFirstAdminVisitMarketplaceStatus();
-        }
     }
 
     componentDidUpdate() {

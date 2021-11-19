@@ -213,22 +213,6 @@ export function setFirstAdminVisitMarketplaceStatus(): ActionFunc {
     };
 }
 
-export function getFirstAdminVisitMarketplaceStatus(): ActionFunc {
-    return async (dispatch: DispatchFunc, getState: GetStateFunc) => {
-        let data;
-        try {
-            data = await Client4.getFirstAdminVisitMarketplaceStatus();
-        } catch (error) {
-            forceLogoutIfNecessary(error, dispatch, getState);
-            return {error};
-        }
-
-        data = JSON.parse(data.value);
-        dispatch({type: GeneralTypes.FIRST_ADMIN_VISIT_MARKETPLACE_STATUS_RECEIVED, data});
-        return {data};
-    };
-}
-
 export default {
     getPing,
     getClientConfig,
@@ -243,5 +227,4 @@ export default {
     setUrl,
     getRedirectLocation,
     getWarnMetricsStatus,
-    getFirstAdminVisitMarketplaceStatus,
 };

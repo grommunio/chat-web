@@ -26,7 +26,7 @@ describe('Cloud Onboarding', () => {
         // # Set Support Email setting
         const newSettings = {
             SupportSettings: {
-                SupportEmail: 'feedback@mattermost.com',
+                SupportEmail: 'office@grommunio.com',
             },
         };
         cy.apiUpdateConfig(newSettings);
@@ -163,7 +163,7 @@ function checkStepTwo(appDownloadLink) {
 function checkStepThree() {
     cy.get('#tutorialIntroThree').should('be.visible').
         and('contain', 'Invite Teammates when you\'re ready.').
-        and('contain', 'Need anything, just email us at feedback@mattermost.com.').
+        and('contain', 'Need anything, just email us at office@grommunio.com.').
         and('contain', 'Click "Next" to enter Town Square. This is the first channel teammates see when they sign up. Use it for posting updates everyone needs to know.');
 
     cy.get('#tutorialIntroCircle2').should('have.class', 'circle active');

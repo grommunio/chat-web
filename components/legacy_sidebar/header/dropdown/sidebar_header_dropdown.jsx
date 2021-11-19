@@ -29,7 +29,6 @@ export default class SidebarHeaderDropdown extends React.PureComponent {
         firstAdminVisitMarketplaceStatus: PropTypes.bool.isRequired,
         actions: PropTypes.shape({
             openModal: PropTypes.func.isRequired,
-            getFirstAdminVisitMarketplaceStatus: PropTypes.func.isRequired,
         }).isRequired,
     };
 
@@ -80,7 +79,6 @@ export default class SidebarHeaderDropdown extends React.PureComponent {
                     teamDisplayName={this.props.teamDisplayName}
                     teamId={this.props.teamId}
                     openModal={this.props.actions.openModal}
-                    getFirstAdminVisitMarketplaceStatus={this.props.actions.getFirstAdminVisitMarketplaceStatus}
                     showUnread={this.props.enablePluginMarketplace && isAdmin(this.props.currentUser.roles) && !this.props.firstAdminVisitMarketplaceStatus}
                 />
                 <MainMenu id='sidebarDropdownMenu'/>

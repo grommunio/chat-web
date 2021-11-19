@@ -2323,13 +2323,6 @@ export default class Client4 {
         );
     }
 
-    getFirstAdminVisitMarketplaceStatus = async () => {
-        return this.doFetch<SystemSetting>(
-            `${this.getPluginsRoute()}/marketplace/first_admin_visit`,
-            {method: 'get'},
-        );
-    };
-
     getTranslations = (url: string) => {
         return this.doFetch<Record<string, string>>(
             url,

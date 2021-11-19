@@ -4,8 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {getFirstAdminVisitMarketplaceStatus} from 'mattermost-redux/actions/general';
-import {getConfig, getFirstAdminVisitMarketplaceStatus as firstAdminVisitMarketplaceStatus} from 'mattermost-redux/selectors/entities/general';
+import {getConfig} from 'mattermost-redux/selectors/entities/general';
 
 import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
 import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
@@ -41,7 +40,6 @@ function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators({
             openModal,
-            getFirstAdminVisitMarketplaceStatus,
         }, dispatch),
     };
 }
