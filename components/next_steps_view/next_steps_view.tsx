@@ -284,7 +284,7 @@ export default class NextStepsView extends React.PureComponent<Props, State> {
                         <h1 className='NextStepsView__header-headerTopText'>
                             <FormattedMessage
                                 id='next_steps_view.welcomeToMattermost'
-                                defaultMessage='Welcome to Mattermost'
+                                defaultMessage='Welcome to grommunio chat'
                             />
                         </h1>
                         <h2 className='NextStepsView__header-headerBottomText'>

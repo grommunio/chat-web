@@ -118,7 +118,7 @@ describe('Onboarding', () => {
             cy.get('#sidebarItem_town-square').should('exist');
         });
 
-        // * Check that the 'Welcome to Mattermost' message is visible
-        cy.findByText('Welcome to Mattermost').should('be.visible');
+        // * Check that the 'Welcome to grommunio chat' message is visible
+        cy.findByText('Welcome to grommunio chat').should('be.visible');
     });
 });

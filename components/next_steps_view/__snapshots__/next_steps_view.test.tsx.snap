@@ -19,7 +19,7 @@ exports[`components/next_steps_view should match snapshot 1`] = `
           className="NextStepsView__header-headerTopText"
         >
           <MemoizedFormattedMessage
-            defaultMessage="Welcome to Mattermost"
+            defaultMessage="Welcome to grommunio chat"
             id="next_steps_view.welcomeToMattermost"
           />
         </h1>

@@ -11,8 +11,6 @@ import {UserProfile} from 'mattermost-redux/types/users';
 
 import AboutBuildModal from 'components/about_build_modal';
 import SystemPermissionGate from 'components/permissions_gates/system_permission_gate';
-import TeamPermissionGate from 'components/permissions_gates/team_permission_gate';
-import MarketplaceModal from 'components/plugin_marketplace';
 import Menu from 'components/widgets/menu/menu';
 
 import {ModalIdentifiers} from 'utils/constants';
@@ -39,7 +37,6 @@ export type Props = {
 
 const ProductMenuList = (props: Props): JSX.Element | null => {
     const {
-        teamId,
         teamName,
         siteName,
         currentUser,
@@ -51,7 +48,6 @@ const ProductMenuList = (props: Props): JSX.Element | null => {
         enableOutgoingWebhooks,
         canManageSystemBots,
         canManageIntegrations,
-        enablePluginMarketplace,
         onClick,
         isMobile = false,
     } = props;
@@ -103,24 +99,6 @@ const ProductMenuList = (props: Props): JSX.Element | null => {
                         />
                     }
                 />
-                <TeamPermissionGate
-                    teamId={teamId}
-                    permissions={[Permissions.SYSCONSOLE_WRITE_PLUGINS]}
-                >
-                    <Menu.ItemToggleModalRedux
-                        id='marketplaceModal'
-                        modalId={ModalIdentifiers.PLUGIN_MARKETPLACE}
-                        show={isMessaging && !isMobile && enablePluginMarketplace}
-                        dialogType={MarketplaceModal}
-                        text={formatMessage({id: 'navbar_dropdown.marketplace', defaultMessage: 'Marketplace'})}
-                        icon={
-                            <Icon
-                                size={16}
-                                glyph={'apps'}
-                            />
-                        }
-                    />
-                </TeamPermissionGate>
                 <Menu.ItemExternalLink
                     id='nativeAppLink'
                     show={appDownloadLink && !UserAgent.isMobileApp()}

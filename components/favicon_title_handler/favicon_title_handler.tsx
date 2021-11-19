@@ -109,7 +109,7 @@ export class FaviconTitleHandlerClass extends React.PureComponent<Props> {
                 siteName: currentSiteName,
             });
         } else {
-            document.title = formatMessage({id: 'sidebar.team_select', defaultMessage: '{siteName} - Join a team'}, {siteName: currentSiteName || 'Mattermost'});
+            document.title = formatMessage({id: 'sidebar.team_select', defaultMessage: '{siteName} - Join a team'}, {siteName: currentSiteName || 'grommunio chat'});
         }
     }
 
