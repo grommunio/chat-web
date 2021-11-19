@@ -57,7 +57,7 @@ const Preferences = {
     CATEGORY_THEME: 'theme',
     THEMES: {
         default: {
-            type: 'grammm',
+            type: 'grommunio',
             sidebarBg: '#1f1f1f',
             sidebarText: '#ffffff',
             sidebarUnreadText: '#ffffff',
@@ -112,8 +112,8 @@ const Preferences = {
             mentionHighlightLink: '#2f81b7',
             codeTheme: 'github',
         },
-        grammmDark: {
-            type: 'grammm Dark',
+        grommunioDark: {
+            type: 'grommunio Dark',
             sidebarText: '#ffffff',
             sidebarBg: '#1f1f1f',
             sidebarUnreadText: '#ffffff',
