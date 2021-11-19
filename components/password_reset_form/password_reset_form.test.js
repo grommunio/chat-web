@@ -19,7 +19,7 @@ describe('components/PasswordResetForm', () => {
         location: {
             search: '',
         },
-        siteName: 'Mattermost',
+        siteName: 'grommunio chat',
         actions: {
             resetUserPassword: jest.fn().mockResolvedValue({data: true}),
         },
