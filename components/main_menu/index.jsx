@@ -6,6 +6,11 @@ import {bindActionCreators} from 'redux';
 
 import {
     getConfig,
+<<<<<<< HEAD
+=======
+    getLicense,
+    getSubscriptionStats as selectSubscriptionStats,
+>>>>>>> 2d440b924... Remove getFirstAdminVisitMarketplaceStatus() to remove drawer menu badge
 } from 'mattermost-redux/selectors/entities/general';
 import {
     getJoinableTeamIds,

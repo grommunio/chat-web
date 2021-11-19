@@ -96,6 +96,3 @@ export const getServerVersion = (state: GlobalState): string => {
     return state.entities.general.serverVersion;
 };
 
-export function getFirstAdminVisitMarketplaceStatus(state: GlobalState): boolean {
-    return state.entities.general.firstAdminVisitMarketplaceStatus;
-}
