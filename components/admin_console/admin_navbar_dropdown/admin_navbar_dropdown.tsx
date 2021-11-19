@@ -121,7 +121,7 @@ class AdminNavbarDropdown extends React.PureComponent<Props> {
                         onClick={() => trackEvent('admin', 'click_administrators_about')}
                         modalId={ModalIdentifiers.ABOUT}
                         dialogType={AboutBuildModal}
-                        text={formatMessage({id: 'navbar_dropdown.about', defaultMessage: 'About {appTitle}'}, {appTitle: siteName || 'Mattermost'})}
+                        text={formatMessage({id: 'navbar_dropdown.about', defaultMessage: 'About {appTitle}'}, {appTitle: siteName || 'grommunio chat'})}
                     />
                 </Menu.Group>
                 <Menu.Group>

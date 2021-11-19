@@ -130,7 +130,7 @@ describe('Team Settings', () => {
             cy.get('#sidebarItem_town-square').should('exist');
         });
 
-        // * Check that the 'Welcome to Mattermost' message is visible
+        // * Check that the 'Welcome to grommunio chat' message is visible
         cy.findByText(`Welcome to ${siteName}`).should('be.visible');
     });
 });
