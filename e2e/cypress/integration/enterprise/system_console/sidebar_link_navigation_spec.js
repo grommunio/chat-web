@@ -86,7 +86,7 @@ describe('System Console - Enterprise', () => {
         cy.apiRequireLicense();
 
         const newSettings = {
-            TeamSettings: {SiteName: 'Mattermost'},
+            TeamSettings: {SiteName: 'grommunio chat'},
         };
         cy.apiUpdateConfig(newSettings);
 

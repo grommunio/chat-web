@@ -169,7 +169,7 @@ describe('System Console - Non-Enterprise', () => {
 
     before(() => {
         const newSettings = {
-            TeamSettings: {SiteName: 'Mattermost'},
+            TeamSettings: {SiteName: 'grommunio chat'},
         };
         cy.apiUpdateConfig(newSettings);
 

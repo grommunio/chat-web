@@ -129,7 +129,7 @@ describe('Cloud Onboarding', () => {
 function checkStepOne() {
     cy.get('#tutorialIntroContent').should('be.visible').
         and('contain', 'Welcome to:').
-        and('contain', 'Mattermost').
+        and('contain', 'grommunio chat').
         and('contain', 'Your team communication all in one place, instantly searchable and available anywhere.').
         and('contain', 'Keep your team connected to help them achieve what matters most.');
 
