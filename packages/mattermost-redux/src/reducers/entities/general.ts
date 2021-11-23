@@ -127,16 +127,6 @@ function warnMetricsStatus(state: any = {}, action: GenericAction) {
     }
 }
 
-function firstAdminVisitMarketplaceStatus(state = false, action: GenericAction) {
-    switch (action.type) {
-    case GeneralTypes.FIRST_ADMIN_VISIT_MARKETPLACE_STATUS_RECEIVED:
-        return action.data;
-
-    default:
-        return state;
-    }
-}
-
 export default combineReducers({
     appState,
     credentials,
@@ -147,5 +137,4 @@ export default combineReducers({
     serverVersion,
     timezones,
     warnMetricsStatus,
-    firstAdminVisitMarketplaceStatus,
 });
