@@ -13,7 +13,7 @@ import {toggleShortcutsModal} from 'actions/global_actions';
 import {trackEvent} from 'actions/telemetry_actions';
 import * as Utils from 'utils/utils';
 
-const askTheCommunityUrl = 'https://mattermost.com/pl/default-ask-mattermost-community/';
+const askTheCommunityUrl = 'https://community.grommunio.com';
 
 type Props = {
     intl: IntlShape;

@@ -182,8 +182,5 @@ describe('Actions.General', () => {
             reply(200, OK_RESPONSE);
 
         await Actions.setFirstAdminVisitMarketplaceStatus()(store.dispatch, store.getState);
-
-        const {firstAdminVisitMarketplaceStatus} = store.getState().entities.general;
-        assert.strictEqual(firstAdminVisitMarketplaceStatus, true);
     });
 });

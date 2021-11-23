@@ -950,20 +950,6 @@ exports[`components/AdminSidebar should match snapshot 1`] = `
                 />
               }
             />
-            <AdminSidebarSection
-              definitionKey="authentication.gitlab"
-              key="authentication.gitlab"
-              name="authentication/gitlab"
-              parentLink=""
-              subsection={false}
-              tag=""
-              title={
-                <Memo(MemoizedFormattedMessage)
-                  defaultMessage="GitLab"
-                  id="admin.sidebar.gitlab"
-                />
-              }
-            />
           </AdminSidebarCategory>
           <AdminSidebarCategory
             definitionKey="plugins"

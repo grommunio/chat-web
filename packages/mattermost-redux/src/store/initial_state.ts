@@ -14,7 +14,6 @@ const state: GlobalState = {
             license: {},
             serverVersion: '',
             warnMetricsStatus: {},
-            firstAdminVisitMarketplaceStatus: false,
         },
         users: {
             currentUserId: '',
