@@ -47,7 +47,6 @@ describe('components/Menu', () => {
         moreTeamsToJoin: false,
         pluginMenuItems: [],
         isMentionSearch: false,
-        showGettingStarted: false,
         actions: {
             openModal: jest.fn(),
             showMentions: jest.fn(),

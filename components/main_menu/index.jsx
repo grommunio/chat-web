@@ -18,16 +18,9 @@ import {Permissions} from 'mattermost-redux/constants';
 
 import {RHSStates} from 'utils/constants';
 
-import {unhideNextSteps} from 'actions/views/next_steps';
 import {showMentions, showFlaggedPosts, closeRightHandSide, closeMenu as closeRhsMenu} from 'actions/views/rhs';
 import {openModal} from 'actions/views/modals';
 import {getRhsState} from 'selectors/rhs';
-
-import {
-    showOnboarding,
-    showNextStepsTips,
-    showNextSteps,
-} from 'components/next_steps_view/steps';
 
 import MainMenu from './main_menu.jsx';
 
@@ -75,9 +68,6 @@ function mapStateToProps(state) {
         teamIsGroupConstrained: Boolean(currentTeam.group_constrained),
         isLicensedForLDAPGroups:
             state.entities.general.license.LDAPGroups === 'true',
-        showGettingStarted: showOnboarding(state),
-        showNextStepsTips: showNextStepsTips(state),
-        showNextSteps: showNextSteps(state),
     };
 }
 
@@ -89,7 +79,6 @@ function mapDispatchToProps(dispatch) {
             showFlaggedPosts,
             closeRightHandSide,
             closeRhsMenu,
-            unhideNextSteps,
             getSubscriptionStats,
         }, dispatch),
     };

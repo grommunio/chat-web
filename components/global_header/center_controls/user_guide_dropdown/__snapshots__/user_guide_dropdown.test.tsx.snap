@@ -61,13 +61,6 @@ exports[`components/channel_header/components/UserGuideDropdown should match sna
         text="Help resources"
         url="helpLink"
       />
-      <MenuItemAction
-        icon={false}
-        id="gettingStarted"
-        onClick={[Function]}
-        show={false}
-        text="Getting Started"
-      />
       <MenuItemExternalLink
         id="reportAProblemLink"
         show={true}

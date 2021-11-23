@@ -57,7 +57,6 @@ const GlobalThreads = () => {
     const selectedThread = useSelector((state: GlobalState) => getThread(state, threadIdentifier));
     const selectedThreadId = useSelector(getSelectedThreadIdInCurrentTeam);
     const selectedPost = useSelector((state: GlobalState) => getPost(state, threadIdentifier!));
-    const showNextStepsEphemeral = useSelector((state: GlobalState) => state.views.nextSteps.show);
     const config = useSelector(getConfig);
     const threadIds = useSelector((state: GlobalState) => getThreadOrderInCurrentTeam(state, selectedThread?.id), shallowEqual);
     const unreadThreadIds = useSelector((state: GlobalState) => getUnreadThreadOrderInCurrentTeam(state, selectedThread?.id), shallowEqual);
@@ -103,11 +102,6 @@ const GlobalThreads = () => {
     const handleSelectUnread = useCallback(() => {
         setFilter(ThreadFilter.unread);
     }, []);
-
-    const enableOnboardingFlow = config.EnableOnboardingFlow === 'true';
-    if (showNextStepsEphemeral && enableOnboardingFlow) {
-        return <NextStepsView/>;
-    }
 
     return (
         <div

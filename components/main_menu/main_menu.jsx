@@ -55,9 +55,7 @@ class MainMenu extends React.PureComponent {
         isMentionSearch: PropTypes.bool,
         teamIsGroupConstrained: PropTypes.bool.isRequired,
         isLicensedForLDAPGroups: PropTypes.bool,
-        showGettingStarted: PropTypes.bool.isRequired,
         intl: intlShape.isRequired,
-        showNextStepsTips: PropTypes.bool,
         actions: PropTypes.shape({
             openModal: PropTypes.func.isRequred,
             showMentions: PropTypes.func,
@@ -324,13 +322,6 @@ class MainMenu extends React.PureComponent {
                         url={this.props.helpLink}
                         text={formatMessage({id: 'navbar_dropdown.help', defaultMessage: 'Help'})}
                         icon={<i className='fa fa-question'/>}
-                    />
-                    <Menu.ItemAction
-                        id='gettingStarted'
-                        show={this.props.showGettingStarted}
-                        onClick={() => this.props.actions.unhideNextSteps()}
-                        text={formatMessage({id: this.props.showNextStepsTips ? 'sidebar_next_steps.tipsAndNextSteps' : 'navbar_dropdown.gettingStarted', defaultMessage: this.props.showNextStepsTips ? 'Tips & Next Steps' : 'Getting Started'})}
-                        icon={<i className={`icon ${this.props.showNextStepsTips ? 'icon-lightbulb-outline' : 'icon-play'}`}/>}
                     />
                     <Menu.ItemExternalLink
                         id='reportLink'

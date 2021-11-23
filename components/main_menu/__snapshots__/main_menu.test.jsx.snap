@@ -74,7 +74,6 @@ exports[`components/Menu should match snapshot with id 1`] = `
   moreTeamsToJoin={false}
   pluginMenuItems={Array []}
   reportAProblemLink={null}
-  showGettingStarted={false}
   subscription={Object {}}
   teamId="team-id"
   teamIsGroupConstrained={false}
@@ -157,7 +156,6 @@ exports[`components/Menu should match snapshot with most of the thing disabled 1
   moreTeamsToJoin={false}
   pluginMenuItems={Array []}
   reportAProblemLink={null}
-  showGettingStarted={false}
   subscription={Object {}}
   teamId="team-id"
   teamIsGroupConstrained={false}
@@ -240,7 +238,6 @@ exports[`components/Menu should match snapshot with most of the thing disabled i
   moreTeamsToJoin={false}
   pluginMenuItems={Array []}
   reportAProblemLink={null}
-  showGettingStarted={false}
   subscription={Object {}}
   teamId="team-id"
   teamIsGroupConstrained={false}
@@ -323,7 +320,6 @@ exports[`components/Menu should match snapshot with most of the thing enabled 1`
   moreTeamsToJoin={true}
   pluginMenuItems={Array []}
   reportAProblemLink="test-report-link"
-  showGettingStarted={false}
   subscription={Object {}}
   teamId="team-id"
   teamIsGroupConstrained={false}
@@ -406,7 +402,6 @@ exports[`components/Menu should match snapshot with most of the thing enabled in
   moreTeamsToJoin={true}
   pluginMenuItems={Array []}
   reportAProblemLink="test-report-link"
-  showGettingStarted={false}
   subscription={Object {}}
   teamId="team-id"
   teamIsGroupConstrained={false}
@@ -504,7 +499,6 @@ exports[`components/Menu should match snapshot with plugins 1`] = `
     ]
   }
   reportAProblemLink={null}
-  showGettingStarted={false}
   subscription={Object {}}
   teamId="team-id"
   teamIsGroupConstrained={false}
@@ -602,7 +596,6 @@ exports[`components/Menu should match snapshot with plugins in mobile 1`] = `
     ]
   }
   reportAProblemLink={null}
-  showGettingStarted={false}
   subscription={Object {}}
   teamId="team-id"
   teamIsGroupConstrained={false}

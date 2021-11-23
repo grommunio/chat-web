@@ -20,7 +20,6 @@ import ChannelNavigator from './channel_navigator';
 import SidebarChannelList from './sidebar_channel_list';
 import SidebarHeader from './sidebar_header';
 import LegacySidebarHeader from './legacy_sidebar_header';
-import SidebarNextSteps from './sidebar_next_steps';
 
 type Props = {
     teamId: string;
@@ -225,7 +224,6 @@ export default class Sidebar extends React.PureComponent<Props, State> {
                     onDragEnd={this.onDragEnd}
                 />
                 <DataPrefetch/>
-                <SidebarNextSteps/>
                 {this.renderModals()}
             </div>
         );
