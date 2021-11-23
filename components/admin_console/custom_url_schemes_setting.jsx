@@ -26,7 +26,7 @@ export default class CustomURLSchemesSetting extends React.PureComponent {
         super(props);
 
         this.state = {
-            value: this.arrayToString(props.value),
+            value: this.arrayToString(props.value || []),
         };
     }
 

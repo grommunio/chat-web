@@ -72,13 +72,6 @@ const ProductMenuList = (props: Props): JSX.Element | null => {
                 <SystemPermissionGate permissions={[Permissions.SYSCONSOLE_WRITE_BILLING]}>
                     <Menu.CloudTrial id='menuCloudTrial'/>
                 </SystemPermissionGate>
-                <SystemPermissionGate
-                    permissions={[Permissions.SYSCONSOLE_WRITE_ABOUT_EDITION_AND_LICENSE]}
-                >
-                    <Menu.StartTrial
-                        id='startTrial'
-                    />
-                </SystemPermissionGate>
                 <SystemPermissionGate permissions={Permissions.SYSCONSOLE_READ_PERMISSIONS}>
                     <Menu.ItemLink
                         id='systemConsole'
