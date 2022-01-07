@@ -4888,6 +4888,7 @@
   "user.settings.security.passwordMatchError": "The new passwords you entered do not match.",
   "user.settings.security.passwordMinLength": "Invalid minimum length, cannot show preview.",
   "user.settings.security.passwordOffice365CantUpdate": "Login occurs through Office 365. Password cannot be updated.",
+  "user.settings.security.passwordPamCantUpdate": "Login occurs through pam. Password cannot be updated.",
   "user.settings.security.passwordSamlCantUpdate": "This field is handled through your login provider. If you want to change it, you need to do so through your login provider.",
   "user.settings.security.retypePassword": "Retype New Password",
   "user.settings.security.saml": "SAML",

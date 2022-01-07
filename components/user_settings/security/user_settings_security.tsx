@@ -401,6 +401,22 @@ export default class SecurityTab extends React.PureComponent<Props, State> {
                         </div>
                     </div>,
                 );
+            } else if (
+                this.props.user.auth_service === Constants.PAM_SERVICE
+            ) {
+                inputs.push(
+                    <div
+                        key='oauthEmailInfo'
+                        className='form-group'
+                    >
+                        <div className='pb-3'>
+                            <FormattedMessage
+                                id='user.settings.security.passwordPamCantUpdate'
+                                defaultMessage='Login occurs through pam. Password cannot be updated.'
+                            />
+                        </div>
+                    </div>,
+                );
             }
 
             return (
