@@ -4719,6 +4719,7 @@
   "user.settings.security.passwordMatchError": "Die eingegebenen neuen Passwörter stimmen nicht überein.",
   "user.settings.security.passwordMinLength": "Ungültige minimale Länge, kann keine Vorschau anzeigen.",
   "user.settings.security.passwordOffice365CantUpdate": "Anmeldung findet über Office 365 statt. Das Passwort kann nicht aktualisiert werden.",
+  "user.settings.security.passwordPamCantUpdate": "Anmeldung findet über pam statt. Das Passwort kann nicht aktualisiert werden.",
   "user.settings.security.passwordSamlCantUpdate": "Dieses Feld wird durch ihren Login-Provider festgelegt. Wenn Sie es ändern möchten, müssen Sie dies durch den Login-Provider tun.",
   "user.settings.security.retypePassword": "Passwort erneut eingeben",
   "user.settings.security.saml": "SAML",

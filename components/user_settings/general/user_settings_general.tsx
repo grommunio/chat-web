@@ -1056,7 +1056,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
         if (this.props.activeSection === 'username') {
             let extraInfo;
             let submit = null;
-            if (this.props.user.auth_service === '') {
+            if (this.props.user.auth_service === '' || this.props.user.auth_service === Constants.PAM_SERVICE) {
                 let usernameLabel: JSX.Element | string = (
                     <FormattedMessage
                         id='user.settings.general.username'
