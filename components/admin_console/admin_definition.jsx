@@ -21,8 +21,6 @@ import {
 } from 'actions/admin_actions';
 import SystemAnalytics from 'components/analytics/system_analytics';
 import TeamAnalytics from 'components/analytics/team_analytics';
-import PluginManagement from 'components/admin_console/plugin_management';
-import CustomPluginSettings from 'components/admin_console/custom_plugin_settings';
 
 import {trackEvent} from 'actions/telemetry_actions.jsx';
 
@@ -4943,49 +4941,6 @@ const AdminDefinition = {
                         isDisabled: it.not(it.userHasWritePermissionOnResource(RESOURCE_KEYS.ABOUT.EDITION_AND_LICENSE)),
                     },
                 ],
-            },
-        },
-    },
-    plugins: {
-        icon: 'fa-plug',
-        sectionTitle: t('admin.sidebar.plugins'),
-        sectionTitleDefault: 'Plugins',
-        id: 'plugins',
-        isHidden: it.not(it.userHasReadPermissionOnResource('plugins')),
-        plugin_management: {
-            url: 'plugins/plugin_management',
-            title: t('admin.plugins.pluginManagement'),
-            title_default: 'Plugin Management',
-            searchableStrings: [
-                'admin.plugin.management.title',
-                'admin.plugins.settings.enable',
-                'admin.plugins.settings.enableDesc',
-                'admin.plugin.uploadTitle',
-                'admin.plugin.installedTitle',
-                'admin.plugin.installedDesc',
-                'admin.plugin.uploadDesc',
-                'admin.plugin.uploadDisabledDesc',
-                'admin.plugins.settings.enableMarketplace',
-                'admin.plugins.settings.enableMarketplaceDesc',
-                'admin.plugins.settings.enableRemoteMarketplace',
-                'admin.plugins.settings.enableRemoteMarketplaceDesc',
-                'admin.plugins.settings.automaticPrepackagedPlugins',
-                'admin.plugins.settings.automaticPrepackagedPluginsDesc',
-                'admin.plugins.settings.marketplaceUrl',
-                'admin.plugins.settings.marketplaceUrlDesc',
-            ],
-            isDisabled: it.not(it.userHasWritePermissionOnResource('plugins')),
-            schema: {
-                id: 'PluginManagementSettings',
-                component: PluginManagement,
-            },
-        },
-        custom: {
-            url: 'plugins/plugin_:plugin_id',
-            isDisabled: it.not(it.userHasWritePermissionOnResource('plugins')),
-            schema: {
-                id: 'CustomPluginSettings',
-                component: CustomPluginSettings,
             },
         },
     },

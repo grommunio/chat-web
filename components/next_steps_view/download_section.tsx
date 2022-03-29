@@ -6,15 +6,12 @@ import {FormattedMessage} from 'react-intl';
 import classNames from 'classnames';
 
 import {isDesktopApp, isWindows, isMac} from 'utils/user_agent';
-import {trackEvent} from 'actions/telemetry_actions';
 
 import Card from 'components/card/card';
 
 import DownloadApps from './images/download-apps-svg';
-import {getAnalyticsCategory} from './step_helpers';
 
 type Props = {
-    isFirstAdmin: boolean;
     isMobileView: boolean;
     withinNextStep?: boolean;
 }
@@ -52,18 +49,9 @@ function DownloadSection(props: Props): JSX.Element | null {
                     <div className='NextStepsView__downloadButtons'>
                         <button
                             className='NextStepsView__button NextStepsView__downloadForPlatformButton secondary'
-                            onClick={() => downloadLatest(props.isFirstAdmin)}
+                            onClick={() => downloadLatest()}
                         >
                             {getDownloadButtonString()}
-                        </button>
-                        <button
-                            className='NextStepsView__button NextStepsView__downloadAnyButton tertiary'
-                            onClick={() => seeAllApps(props.isFirstAdmin)}
-                        >
-                            <FormattedMessage
-                                id='next_steps_view.seeAllTheApps'
-                                defaultMessage='See all the apps'
-                            />
                         </button>
                     </div>
                 </div>
@@ -103,29 +91,8 @@ const getDownloadButtonString = () => {
     );
 };
 
-const seeAllApps = (isAdmin: boolean) => {
-    trackEvent(getAnalyticsCategory(isAdmin), 'cloud_see_all_apps');
-    window.open('https://mattermost.com/download/#mattermostApps', '_blank');
-};
-
-const downloadLatest = (isAdmin: boolean) => {
-    const baseLatestURL = 'https://latest.mattermost.com/mattermost-desktop-';
-
-    if (isWindows()) {
-        trackEvent(getAnalyticsCategory(isAdmin), 'click_download_app', {app: 'windows'});
-        window.open(`${baseLatestURL}exe`, '_blank');
-        return;
-    }
-
-    if (isMac()) {
-        trackEvent(getAnalyticsCategory(isAdmin), 'click_download_app', {app: 'mac'});
-        window.open(`${baseLatestURL}dmg`, '_blank');
-        return;
-    }
-
-    // TODO: isLinux?
-
-    seeAllApps(isAdmin);
+const downloadLatest = () => {
+    window.open('https://grommunio.com/download/', '_blank');
 };
 
 export default DownloadSection;

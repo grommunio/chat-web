@@ -7,7 +7,6 @@ import {connect} from 'react-redux';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 import {shouldShowTermsOfService, getCurrentUserId, isFirstAdmin} from 'mattermost-redux/selectors/entities/users';
 import {getTeam} from 'mattermost-redux/selectors/entities/teams';
-import {getFirstAdminSetupComplete} from 'mattermost-redux/actions/general';
 import {getTheme, getBool} from 'mattermost-redux/selectors/entities/preferences';
 import {getProfiles} from 'mattermost-redux/actions/users';
 
@@ -52,7 +51,6 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators({
             loadMeAndConfig,
             emitBrowserWindowResized,
-            getFirstAdminSetupComplete,
             getProfiles,
         }, dispatch),
     };
